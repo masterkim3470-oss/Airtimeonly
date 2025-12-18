@@ -495,10 +495,6 @@
 
         /* Mobile responsive styles */
         @media (max-width: 640px) {
-            .refresh-btn {
-                display: none;
-            }
-            
             .user-balance {
                 gap: 6px;
                 padding: 8px 12px;
@@ -1788,10 +1784,13 @@
                         <div style="display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; position: relative; z-index: 1;">
                             <div>
                                 <p style="font-size: 0.85rem; color: rgba(255,255,255,0.75); margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Your Airtime Balance</p>
-                                <p class="balance-value" id="dashboardBalance" style="font-size: 1.6rem; font-weight: 700; color: #f4a020; margin: 0;"><i class="fas fa-lock" style="font-size: 1rem; margin-right: 8px;"></i>Login</p>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <p class="balance-value" id="dashboardBalance" style="font-size: 1.6rem; font-weight: 700; color: #f4a020; margin: 0;"><i class="fas fa-lock" style="font-size: 1rem; margin-right: 8px;"></i>Login</p>
+                                    <button onclick="refreshBalance()" style="background: rgba(244, 160, 32, 0.3); border: none; color: #f4a020; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: all 0.3s;" onmouseover="this.style.background='rgba(244, 160, 32, 0.5)'" onmouseout="this.style.background='rgba(244, 160, 32, 0.3)'"><i class="fas fa-sync-alt"></i></button>
+                                </div>
                             </div>
                             <div style="background: rgba(244, 160, 32, 0.2); backdrop-filter: blur(10px); border-radius: 12px; padding: 12px 16px; border: 1px solid rgba(244, 160, 32, 0.4); text-align: center;">
-                                <p style="margin: 0; font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.5px;">Bonus Offer</p>
+                                <p style="margin: 0; font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.5px;">Bonus Deposit Offer</p>
                                 <p style="margin: 4px 0 0 0; font-size: 1.1rem; font-weight: 700; color: #f4a020;"><i class="fas fa-gift" style="margin-right: 6px;"></i>+KES 6</p>
                             </div>
                         </div>
@@ -2457,8 +2456,6 @@
                         <ul style="margin-left: 15px; color: var(--gray); line-height: 1.8;">
                             <li>Airtime purchases and transactions</li>
                             <li>Wallet deposits and withdrawals</li>
-                            <li>Loan applications and inquiries</li>
-                            <li>Loan repayment support</li>
                             <li>Account issues and verification</li>
                             <li>Technical support</li>
                         </ul>
@@ -2466,7 +2463,7 @@
                     
                     <div style="background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 20px; border-radius: 12px; text-align: center; color: white; margin-bottom: 15px;">
                         <h4 style="margin-bottom: 10px;"><i class="fas fa-headset" style="margin-right: 8px;"></i>Need Immediate Help?</h4>
-                        <p style="opacity: 0.9; margin-bottom: 15px;">Our support team is always ready to assist you with airtime, loans, or any other questions.</p>
+                        <p style="opacity: 0.9; margin-bottom: 15px;">Our support team is always ready to assist you with airtime and any other questions.</p>
                         <a href="https://wa.me/254732202740" target="_blank" class="btn btn-secondary" style="display: inline-flex; width: auto;">
                             <i class="fab fa-whatsapp"></i> Chat Now on WhatsApp
                         </a>
@@ -2489,18 +2486,15 @@
                         <p style="color: var(--gray);"><i class="fas fa-calendar" style="margin-right: 8px;"></i><strong>Last Updated:</strong> December 2025</p>
                     </div>
                     
-                    <p style="margin-bottom: 20px;">At Pesahub Kenya, we are committed to protecting your privacy and ensuring the security of your personal information for both our airtime and loan services.</p>
+                    <p style="margin-bottom: 20px;">At Pesahub Kenya, we are committed to protecting your privacy and ensuring the security of your personal information for our airtime services.</p>
                     
                     <div style="border-left: 4px solid var(--primary); padding-left: 15px; margin-bottom: 20px;">
                         <h4 style="color: var(--primary); margin-bottom: 10px;">1. Information We Collect</h4>
                         <ul style="margin-left: 15px; color: var(--gray); line-height: 1.8;">
                             <li>Email address for account authentication</li>
-                            <li>Phone number for airtime transactions and loan disbursements</li>
+                            <li>Phone number for airtime transactions</li>
                             <li>Transaction history and amounts</li>
                             <li>Device information for security purposes</li>
-                            <li>National ID for loan eligibility verification</li>
-                            <li>Emergency contact details for loan applications</li>
-                            <li>Employment and income information for loan assessment</li>
                         </ul>
                     </div>
                     
@@ -2508,13 +2502,10 @@
                         <h4 style="color: var(--info); margin-bottom: 10px;">2. How We Use Your Information</h4>
                         <ul style="margin-left: 15px; color: var(--gray); line-height: 1.8;">
                             <li>Process airtime purchases and deposits</li>
-                            <li>Process and disburse loan applications</li>
-                            <li>Assess loan eligibility and creditworthiness</li>
-                            <li>Send transaction and loan repayment confirmations</li>
+                            <li>Send transaction confirmations</li>
                             <li>Provide customer support for all services</li>
                             <li>Improve our services and user experience</li>
                             <li>Prevent fraud and maintain security</li>
-                            <li>Send loan repayment reminders</li>
                         </ul>
                     </div>
                     
@@ -2524,26 +2515,15 @@
                         <ul style="margin-left: 15px; color: var(--gray); line-height: 1.8;">
                             <li>SSL/TLS encryption for all data transfers</li>
                             <li>Secure payment processing via M-Pesa</li>
-                            <li>Encrypted storage of sensitive loan application data</li>
                             <li>Regular security audits</li>
                             <li>Access controls and authentication</li>
                         </ul>
                     </div>
 
-                    <div style="border-left: 4px solid #27ae60; padding-left: 15px; margin-bottom: 20px;">
-                        <h4 style="color: #27ae60; margin-bottom: 10px;">4. Loan Data Protection</h4>
-                        <p style="color: var(--gray); margin-bottom: 10px;">For loan services, we take extra precautions:</p>
-                        <ul style="margin-left: 15px; color: var(--gray); line-height: 1.8;">
-                            <li>Your loan information is kept strictly confidential</li>
-                            <li>Emergency contacts are only used for loan recovery purposes</li>
-                            <li>We do not share your financial data with unauthorized third parties</li>
-                            <li>Loan history is securely stored and protected</li>
-                        </ul>
-                    </div>
                     
                     <div style="border-left: 4px solid var(--warning); padding-left: 15px; margin-bottom: 20px;">
-                        <h4 style="color: var(--warning); margin-bottom: 10px;">5. Your Rights</h4>
-                        <p style="color: var(--gray);">You have the right to access, correct, or delete your personal data. Contact us at support@airtimesolutionkenya.com for any privacy-related requests regarding airtime or loan services.</p>
+                        <h4 style="color: var(--warning); margin-bottom: 10px;">4. Your Rights</h4>
+                        <p style="color: var(--gray);">You have the right to access, correct, or delete your personal data. Contact us at support@airtimesolutionkenya.com for any privacy-related requests.</p>
                     </div>
                     
                     <div style="text-align: center;">
@@ -2563,11 +2543,11 @@
                         <p style="color: var(--gray);"><i class="fas fa-calendar" style="margin-right: 8px;"></i><strong>Effective Date:</strong> December 2025</p>
                     </div>
                     
-                    <p style="margin-bottom: 20px;">Please read these Terms of Service carefully before using Pesahub Kenya's airtime and loan services.</p>
+                    <p style="margin-bottom: 20px;">Please read these Terms of Service carefully before using Pesahub Kenya's airtime services.</p>
                     
                     <div style="background: var(--light); padding: 20px; border-radius: 12px; margin-bottom: 15px;">
                         <h4 style="color: var(--primary); margin-bottom: 10px;"><i class="fas fa-handshake" style="margin-right: 8px;"></i>1. Acceptance of Terms</h4>
-                        <p style="color: var(--gray);">By accessing or using Pesahub Kenya, you agree to be bound by these Terms of Service for all our services including airtime transactions and loan facilities. If you do not agree, please do not use our services.</p>
+                        <p style="color: var(--gray);">By accessing or using Pesahub Kenya, you agree to be bound by these Terms of Service for all our airtime services. If you do not agree, please do not use our services.</p>
                     </div>
                     
                     <div style="background: var(--light); padding: 20px; border-radius: 12px; margin-bottom: 15px;">
@@ -2576,52 +2556,34 @@
                             <li>Airtime purchase for Safaricom, Airtel, and Telkom networks</li>
                             <li>Wallet deposit and management</li>
                             <li>Airtime to cash conversion (coming soon)</li>
-                            <li>Personal loan facilities with flexible terms</li>
-                            <li>Quick loan disbursement via M-Pesa</li>
                             <li>All completed transactions are final and non-reversible</li>
                         </ul>
                     </div>
 
-                    <div style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(39, 174, 96, 0.1)); padding: 20px; border-radius: 12px; margin-bottom: 15px; border: 1px solid rgba(46, 204, 113, 0.3);">
-                        <h4 style="color: #27ae60; margin-bottom: 10px;"><i class="fas fa-hand-holding-usd" style="margin-right: 8px;"></i>3. Loan Terms and Conditions</h4>
-                        <ul style="margin-left: 15px; color: var(--gray); line-height: 1.8;">
-                            <li>Loans are subject to eligibility verification and approval</li>
-                            <li>Interest rates and repayment terms are disclosed before disbursement</li>
-                            <li>You must repay loans within the agreed timeframe</li>
-                            <li>Late payments may incur additional fees as specified</li>
-                            <li>Defaulting on loans may affect your future eligibility</li>
-                            <li>Emergency contacts may be contacted for loan recovery purposes</li>
-                            <li>Loan disbursements are made via M-Pesa to your registered number</li>
-                        </ul>
-                    </div>
                     
                     <div style="background: var(--light); padding: 20px; border-radius: 12px; margin-bottom: 15px;">
-                        <h4 style="color: var(--primary); margin-bottom: 10px;"><i class="fas fa-user-shield" style="margin-right: 8px;"></i>4. User Responsibilities</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 10px;"><i class="fas fa-user-shield" style="margin-right: 8px;"></i>3. User Responsibilities</h4>
                         <ul style="margin-left: 15px; color: var(--gray); line-height: 1.8;">
                             <li>Maintain the security of your account credentials</li>
                             <li>Provide accurate phone numbers for transactions</li>
-                            <li>Provide truthful information for loan applications</li>
-                            <li>Repay loans within the agreed timeframe</li>
                             <li>Report any unauthorized activity immediately</li>
                             <li>Use services only for lawful purposes</li>
                         </ul>
                     </div>
                     
                     <div style="background: var(--light); padding: 20px; border-radius: 12px; margin-bottom: 15px;">
-                        <h4 style="color: var(--primary); margin-bottom: 10px;"><i class="fas fa-ban" style="margin-right: 8px;"></i>5. Prohibited Activities</h4>
+                        <h4 style="color: var(--primary); margin-bottom: 10px;"><i class="fas fa-ban" style="margin-right: 8px;"></i>4. Prohibited Activities</h4>
                         <ul style="margin-left: 15px; color: var(--gray); line-height: 1.8;">
                             <li>Fraudulent transactions or money laundering</li>
-                            <li>Providing false information for loan applications</li>
                             <li>Attempting to exploit system vulnerabilities</li>
                             <li>Using the service for illegal purposes</li>
                             <li>Sharing account credentials with others</li>
-                            <li>Taking loans with no intention to repay</li>
                         </ul>
                     </div>
                     
                     <div style="background: var(--light); padding: 20px; border-radius: 12px;">
-                        <h4 style="color: var(--primary); margin-bottom: 10px;"><i class="fas fa-gavel" style="margin-right: 8px;"></i>6. Limitation of Liability</h4>
-                        <p style="color: var(--gray);">Pesahub Kenya shall not be liable for any indirect, incidental, or consequential damages arising from the use of our airtime or loan services. Our maximum liability is limited to the amount of the transaction in question.</p>
+                        <h4 style="color: var(--primary); margin-bottom: 10px;"><i class="fas fa-gavel" style="margin-right: 8px;"></i>5. Limitation of Liability</h4>
+                        <p style="color: var(--gray);">Pesahub Kenya shall not be liable for any indirect, incidental, or consequential damages arising from the use of our airtime services. Our maximum liability is limited to the amount of the transaction in question.</p>
                     </div>
                 </div>
             </div>
@@ -6529,32 +6491,26 @@
         // Fake Live Activity Notifications
         (function initLiveActivity() {
             const firstNames = [
-                'James', 'Mary', 'John', 'Patricia', 'David', 'Sarah', 'Michael', 'Grace', 'Peter', 'Faith',
-                'Joseph', 'Mercy', 'Daniel', 'Joy', 'Stephen', 'Rose', 'Kevin', 'Ann', 'Brian', 'Lucy',
-                'Victor', 'Nancy', 'George', 'Alice', 'Samuel', 'Esther', 'Paul', 'Cynthia', 'Moses', 'Diana',
-                'Anthony', 'Elizabeth', 'Charles', 'Catherine', 'Robert', 'Jane', 'William', 'Margaret', 'Richard', 'Susan',
-                'Thomas', 'Dorothy', 'Christopher', 'Ruth', 'Andrew', 'Florence', 'Martin', 'Beatrice', 'Lawrence', 'Winnie',
-                'Emmanuel', 'Josephine', 'Patrick', 'Caroline', 'Dennis', 'Gladys', 'Francis', 'Irene', 'Geoffrey', 'Jackline',
-                'Henry', 'Lilian', 'Isaac', 'Maureen', 'Julius', 'Naomi', 'Kenneth', 'Pauline', 'Leonard', 'Rachel',
-                'Mark', 'Sharon', 'Nicholas', 'Teresa', 'Oscar', 'Victoria', 'Philip', 'Wanjiku', 'Raphael', 'Yvonne',
-                'Simon', 'Agnes', 'Timothy', 'Brenda', 'Vincent', 'Christine', 'Walter', 'Dorcas', 'Zachary', 'Evelyn',
-                'Alex', 'Fatuma', 'Ben', 'Hannah', 'Caleb', 'Janet', 'Edwin', 'Leah', 'Felix', 'Marion',
-                'Gerald', 'Nelly', 'Harrison', 'Pamela', 'Ivan', 'Regina', 'Jackson', 'Stellah', 'Kennedy', 'Tabitha',
-                'Linus', 'Wambui', 'Maxwell', 'Zipporah', 'Nathan', 'Amina', 'Oliver', 'Baraka', 'Pius', 'Charity',
-                'Quentin', 'Damaris', 'Ronald', 'Eunice', 'Steve', 'Francisca', 'Tony', 'Gaudencia', 'Amos', 'Hope',
-                'Bernard', 'Immaculate', 'Collins', 'Juliet', 'Dominic', 'Keziah', 'Eric', 'Lydia', 'Fredrick', 'Martha',
-                'Gordon', 'Njeri', 'Hillary', 'Olive', 'Innocent', 'Peris', 'Joel', 'Risper', 'Kelvin', 'Salome',
-                'Lewis', 'Truphena', 'Mathew', 'Veronica', 'Nelson', 'Wangari', 'Owen', 'Achieng', 'Purity', 'Consolata',
-                'Raymond', 'Damiana', 'Sebastian', 'Emily', 'Titus', 'Felistas', 'Urban', 'Georgina', 'Wesley', 'Hellen',
-                'Xavier', 'Ivy', 'Yusuf', 'Judy', 'Zedekiah', 'Karen', 'Abraham', 'Linda', 'Boniface', 'Miriam',
-                'Clifford', 'Nyambura', 'Douglas', 'Omondi', 'Elijah', 'Phoebe', 'Franklin', 'Rita', 'Gregory', 'Sylvia',
-                'Herbert', 'Teresia', 'Isaiah', 'Upendo', 'Japheth', 'Vivian', 'Kimani', 'Wairimu', 'Lameck', 'Atieno'
-            ];
+'User ••••4829','User ••••7391','User ••••1058','User ••••2946','User ••••6813','User ••••4079','User ••••9520','User ••••3186','User ••••7642','User ••••5907',
+'User ••••8431','User ••••2764','User ••••9085','User ••••1647','User ••••7359','User ••••4208','User ••••6914','User ••••5830','User ••••9472','User ••••2186',
+'User ••••5069','User ••••7824','User ••••3491','User ••••8607','User ••••4928','User ••••7351','User ••••1624','User ••••9083','User ••••2519','User ••••6840',
+'User ••••4726','User ••••9037','User ••••1985','User ••••7652','User ••••4301','User ••••8926','User ••••1573','User ••••6489','User ••••3817','User ••••9241',
+'User ••••5037','User ••••7168','User ••••2849','User ••••6094','User ••••1359','User ••••8726','User ••••4967','User ••••7502','User ••••3189','User ••••9846',
+'User ••••6073','User ••••4921','User ••••8350','User ••••2619','User ••••9783','User ••••4152','User ••••7038','User ••••5297','User ••••8641','User ••••1420',
+'User ••••7904','User ••••3569','User ••••4187','User ••••9672','User ••••2058','User ••••6341','User ••••5819','User ••••8472','User ••••3029','User ••••7140',
+'User ••••9382','User ••••4609','User ••••1967','User ••••8203','User ••••5471','User ••••3698','User ••••9057','User ••••1286','User ••••7840','User ••••6523',
+'User ••••4318','User ••••9702','User ••••2859','User ••••6480','User ••••1398','User ••••7564','User ••••4926','User ••••8031','User ••••2649','User ••••5178',
+'User ••••9340','User ••••6852','User ••••1749','User ••••8209','User ••••4537','User ••••7906','User ••••3084','User ••••9617','User ••••5479','User ••••2864',
+'User ••••8790','User ••••4206','User ••••6958','User ••••1347','User ••••9086','User ••••5639','User ••••2478','User ••••8301','User ••••4195','User ••••7863',
+'User ••••9502','User ••••6048','User ••••1724','User ••••8936','User ••••4657','User ••••3081','User ••••9274','User ••••5841','User ••••7169','User ••••2498',
+'User ••••8360','User ••••1954','User ••••7648','User ••••5239','User ••••9081','User ••••4602','User ••••1379','User ••••6840','User ••••3528','User ••••7915',
+'User ••••9283','User ••••5701','User ••••6492','User ••••3810','User ••••8046','User ••••2159','User ••••7634','User ••••4980','User ••••9328','User ••••1567',
+'User ••••7094','User ••••3829','User ••••6410','User ••••9087','User ••••2746','User ••••5198','User ••••8609','User ••••4371','User ••••1958','User ••••7264'
+];
             const lastInitials = ['K', 'M', 'N', 'O', 'W', 'A', 'J', 'G', 'C', 'L', 'S', 'P', 'T', 'R', 'B', 'D', 'E', 'F', 'H', 'I', 'U', 'V', 'Y', 'Z', 'Q', 'X'];
             
             const activities = [
                 { type: 'airtime', icon: 'fa-mobile-alt', messages: ['bought KES {amount} airtime', 'purchased KES {amount} airtime', 'topped up KES {amount}', 'recharged KES {amount}', 'got KES {amount} airtime'] },
-                { type: 'loan', icon: 'fa-hand-holding-usd', messages: ['loan of KES {amount} approved', 'received KES {amount} loan', 'got KES {amount} instant loan', 'loan KES {amount} disbursed', 'qualified for KES {amount} loan'] },
                 { type: 'deposit', icon: 'fa-wallet', messages: ['deposited KES {amount}', 'added KES {amount} to wallet', 'loaded KES {amount} float', 'topped up KES {amount} balance'] },
                 { type: 'sell', icon: 'fa-coins', messages: ['earned KES {amount} commission', 'sold airtime, earned KES {amount}', 'made KES {amount} profit', 'commission of KES {amount} received'] }
             ];
@@ -6593,7 +6549,6 @@
                 
                 let amount;
                 if (activity.type === 'airtime') amount = getRandomAmount(50, 500);
-                else if (activity.type === 'loan') amount = getRandomItem([1000, 2000, 3000, 5000, 7500, 10000, 15000]);
                 else if (activity.type === 'deposit') amount = getRandomAmount(100, 2000);
                 else amount = getRandomAmount(10, 100);
 
