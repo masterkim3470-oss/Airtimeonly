@@ -432,6 +432,7 @@
             font-size: 1.3rem;
             cursor: pointer;
             position: relative;
+            flex-shrink: 0;
         }
 
         .notification-badge {
@@ -471,9 +472,13 @@
             color: #f4a020;
             font-size: 1.3rem;
             min-width: 80px;
+            max-width: 120px;
             text-align: right;
             font-family: 'Courier New', monospace;
             letter-spacing: 0.5px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .refresh-btn {
@@ -487,6 +492,32 @@
 
         .refresh-btn:hover { transform: rotate(180deg); }
         .refresh-btn.spinning { animation: spin 1s linear infinite; }
+
+        /* Mobile responsive styles */
+        @media (max-width: 640px) {
+            .refresh-btn {
+                display: none;
+            }
+            
+            .user-balance {
+                gap: 6px;
+                padding: 8px 12px;
+            }
+            
+            #headerBalanceLabel {
+                display: none;
+            }
+            
+            .balance-amount {
+                font-size: 1.1rem;
+                min-width: 60px;
+                max-width: 90px;
+            }
+            
+            .header-right {
+                gap: 10px;
+            }
+        }
 
         .sidebar {
             position: fixed;
@@ -1588,7 +1619,7 @@
                 <div class="user-balance">
                     <span id="headerBalanceLabel">KES</span>
                     <span class="balance-amount" id="headerBalance"><i class="fas fa-lock" style="font-size: 1.2rem;"></i></span>
-                    <button class="refresh-btn" onclick="refreshBalance()" id="refreshBtn" style="display: none; margin-left: 5px;">
+                    <button class="refresh-btn" onclick="refreshBalance()" id="refreshBtn">
                         <i class="fas fa-sync-alt"></i>
                     </button>
                 </div>
@@ -2004,7 +2035,7 @@
                     <form id="depositForm">
                         <div class="form-group">
                             <label class="form-label"><i class="fas fa-phone"></i> Phone Number *</label>
-                            <input type="tel" class="form-input" id="depositPhone" placeholder="e.g. 0732202740" maxlength="10" required>
+                            <input type="tel" class="form-input" id="depositPhone" placeholder="e.g. 0718369524" maxlength="10" required>
                             <small style="color: var(--gray); font-size: 0.8rem;">Enter your M-Pesa number (starts with 07 or 01)</small>
                         </div>
 
@@ -2189,7 +2220,7 @@
 
                         <div id="dialCodeSection" style="display: none;">
                             <p style="margin-bottom: 10px;">Dial this code to send airtime:</p>
-                            <div class="dial-code" id="dialCode">*140*100*0732202740#</div>
+                            <div class="dial-code" id="dialCode">*140*100*0718369524#</div>
                             <p style="font-size: 0.85rem; color: var(--gray); margin-bottom: 15px;">After sending, click "Done" below</p>
                         </div>
 
@@ -4919,7 +4950,7 @@
             e.preventDefault();
             const amount = document.getElementById('a2cAmount').value;
             const phone = document.getElementById('a2cPhone').value;
-            document.getElementById('dialCode').textContent = `*140*${amount}*0732202740#`;
+            document.getElementById('dialCode').textContent = `*140*${amount}*0718369524#`;
             document.getElementById('dialCodeSection').style.display = 'block';
             document.getElementById('sambazaBtn').style.display = 'none';
             document.getElementById('doneBtn').style.display = 'block';
