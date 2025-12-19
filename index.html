@@ -492,6 +492,23 @@
 
         .refresh-btn:hover { transform: rotate(180deg); }
         .refresh-btn.spinning { animation: spin 1s linear infinite; }
+        .balance-grid {
+    grid-template-columns: 1fr auto;
+}
+
+@media (max-width: 640px) {
+    .balance-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .balance-grid > div:last-child {
+        margin-top: 10px;
+        width: 100%;
+        text-align: left !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
 
         /* Mobile responsive styles */
         @media (max-width: 640px) {
@@ -1781,7 +1798,7 @@
             <div id="page-dashboard" class="page">
                 <div class="hero-section" style="padding-top: 0;">
                     <div class="card balance-card" style="background: linear-gradient(145deg, #1a5f2a 0%, #0d4a1f 50%, #083314 100%); border: none; border-radius: 18px; padding: 22px; position: relative; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.3); margin-top: 0;">
-                        <div style="display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; position: relative; z-index: 1;">
+                        <div class="balance-grid" style="display: grid; gap: 20px; align-items: start; position: relative; z-index: 1;">
                             <div>
                                 <p style="font-size: 0.85rem; color: rgba(255,255,255,0.75); margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Your Airtime Balance</p>
                                 <div style="display: flex; align-items: center; gap: 10px;">
@@ -2421,7 +2438,7 @@
                             <i class="fab fa-whatsapp" style="font-size: 2rem; color: #25d366; margin-right: 15px;"></i>
                             <div>
                                 <p style="font-weight: 600; margin-bottom: 3px;">WhatsApp</p>
-                                <a href="https://wa.me/254732202740" target="_blank" style="color: var(--primary);">+254 732202740</a>
+                                <a href="https://wa.me/254718369524" target="_blank" style="color: var(--primary);">+254 718369524</a>
                             </div>
                         </div>
                         
@@ -2429,7 +2446,7 @@
                             <i class="fas fa-phone-alt" style="font-size: 2rem; color: var(--primary); margin-right: 15px;"></i>
                             <div>
                                 <p style="font-weight: 600; margin-bottom: 3px;">Phone Call</p>
-                                <a href="tel:+254732202740" style="color: var(--primary);">+254 732202740</a>
+                                <a href="tel:+254718369524" style="color: var(--primary);">+254 718369524</a>
                             </div>
                         </div>
                         
@@ -2464,7 +2481,7 @@
                     <div style="background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 20px; border-radius: 12px; text-align: center; color: white; margin-bottom: 15px;">
                         <h4 style="margin-bottom: 10px;"><i class="fas fa-headset" style="margin-right: 8px;"></i>Need Immediate Help?</h4>
                         <p style="opacity: 0.9; margin-bottom: 15px;">Our support team is always ready to assist you with airtime and any other questions.</p>
-                        <a href="https://wa.me/254732202740" target="_blank" class="btn btn-secondary" style="display: inline-flex; width: auto;">
+                        <a href="https://wa.me/254718369524" target="_blank" class="btn btn-secondary" style="display: inline-flex; width: auto;">
                             <i class="fab fa-whatsapp"></i> Chat Now on WhatsApp
                         </a>
                     </div>
@@ -4929,7 +4946,7 @@
             e.preventDefault();
             const phone = document.getElementById('verifyA2CPhone').value;
             const code = document.getElementById('verifyA2CCode').value;
-            const whatsappUrl = `https://wa.me/254732202740?text=${encodeURIComponent(`Verification: ${code} from ${phone}`)}`;
+            const whatsappUrl = `https://wa.me/254718369524?text=${encodeURIComponent(`Verification: ${code} from ${phone}`)}`;
             window.open(whatsappUrl, '_blank');
             showToast('Verification sent to WhatsApp. You will receive your cashback within 24 hours.', 'success');
         });
